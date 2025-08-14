@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "豆瓣BT资源搜索",
+  "description": "在豆瓣电影详情页显示BT资源搜索结果",
+  "version": "1.0.0",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://movie.douban.com/*",
+    "https://www.btbtla.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://movie.douban.com/subject/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
